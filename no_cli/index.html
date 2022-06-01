@@ -19,10 +19,17 @@
     <section id="user-goal">
       <h2>My Course Goal</h2>
       <!-- v-on:_event_ | @_event_ to capture event and trigger Fn within -->
-      <button @click="counter++">Count: {{ counter }}</button>
-      <p>{{ randomGoal() }}</p>
+      <button @click.left="add(5)" @click.right="subtract(5)">Count 5: {{ counter }}</button>
+      <!-- v-once to lock value from visually changing -->
+      <p v-once>{{ randomGoal }}</p>
       <!-- v-bind:_attr_ to dynamically set HTML attribute -->
       <p>Learn more <a v-bind:href="vueLink" target="_blank">about Vue.js</a></p>
+      <!-- Various event modifiers can be set to v-on events: @submit.prevent  -->
+      <form @submit.prevent="signup">
+        <input type="text" name="name">
+        <button type="submit">Sign Up</button>
+        <p>Welcome: {{ confirmedUsername ? confirmedUsername : 'Guest' }}</p>
+      </form>
     </section>
   </body>
 </html>
