@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue -> Monster Slayer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monster Slayer</h1>
+    </header>
+    <div id="game">
+      <section id="monster" class="container">
+        <h2>Monster Health [{{ monsterHealth }} / {{ monsterMaxHealth }}]</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value monster"
+            :style="{ width: monsterHealthPercentage }"
+          ></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Your Health [{{ playerHealth }} / {{ playerMaxHealth }}]</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value"
+            :style="{ width: playerHealthPercentage }"
+          ></div>
+        </div>
+      </section>
+      <section id="controls">
+        <button v-if="!winner" @click="attackMonster()">ATTACK</button>
+        <button
+          v-if="!winner"
+          @click="specialAttack()"
+          :disabled="specialAttackCooldown > 0"
+        >
+          SPECIAL ATTACK
+        </button>
+        <button v-if="!winner" @click="healPlayer()">HEAL</button>
+        <button v-if="!winner" @click="surrender()">SURRENDER</button>
+
+        <p v-if="winner === 'player'">Congratulations, You won! :D</p>
+        <p v-if="winner === 'monster'">You have been slain! :(</p>
+        <p v-if="winner === 'surrender'">You fled away from the battle...</p>
+        <p v-if="winner === 'draw'">
+          You sacrificed yourself to kill the monster.
+        </p>
+        <button v-if="winner != null" @click="resetGame()">TRY AGAIN</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+          <li v-for="record in battleLog">
+            <span v-if="record.actionBy === 'player'" class="log--player">Player </span>
+            <span v-else class="log--monster">Monster </span>
+
+            <span v-if="record.actionType === 'attack'">
+              has attacked for
+              <span class="log--damage">{{ record.actionValue }}</span> damage
+            </span>
+            <span v-else>
+              heals and regenerated
+              <span class="log--damage">{{ record.actionValue }}</span> health
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

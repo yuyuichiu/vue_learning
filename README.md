@@ -1,4 +1,8 @@
 #Vue Learning Log
+3/6/2022
+- Monster Slayer Project -> a mini-game which player fights monster
+- Reviewed Vue basics
+
 1/6/2022
 - Event handling: event modifiers, v-model...
 - computed -> to update data that depends on other data
