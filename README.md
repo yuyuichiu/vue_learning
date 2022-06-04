@@ -1,7 +1,13 @@
 #Vue Learning Log
+4/6/2022
+- Understanding how Vue.js uses Proxy behind the scenes to be reactive
+- Mounting app = making Vue.js template
+- Vue Ref --> <input ref='vueRef' /> && this.$refs.vueRef
+- Knowing what Virtual DOM does that speeds up rendering process
+
 3/6/2022
 - Monster Slayer Project -> a mini-game which player fights monster
-- Reviewed Vue basics
+- Reviewed Vue basics - data(), methods, computed, watch, v-for
 
 1/6/2022
 - Event handling: event modifiers, v-model...
