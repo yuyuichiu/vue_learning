@@ -15,9 +15,30 @@ const app = Vue.createApp({
       console.log('Ref: ', this.$refs.userText);
     },
   },
+  // -- Vue Life Cycle Methods
+  beforeCreate() {
+    console.log('beforeCreate()')
+  },
+  created() {
+    console.log('created()')
+  },
+  beforeMount() {
+    console.log('beforeMount')
+  },
+  mounted() {
+    console.log('mounted()')
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate()')
+  },
+  updated() {
+    console.log('updated()')
+  },
 });
 
 app.mount('#app');
+
+
 
 // By mounting the app, the mounted HTML part becomes a Vue template
 // In this example, we alternatively add template on JS instead.
@@ -30,10 +51,19 @@ const app2 = Vue.createApp({
     return {
       favoriteMeal: 'pizza'
     }
+  },
+  beforeUnmount() {
+    console.log('beforeUnmount')
+  },
+  unmounted() {
+    console.log('App is unmounted')
   }
 })
 
 app2.mount('#app2')
+setTimeout(function() {
+  app2.unmount()
+}, 3000)
 
 
 // Javascript is not reactive in default

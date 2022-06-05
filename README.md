@@ -1,4 +1,7 @@
 #Vue Learning Log
+5/6/2022
+- Understanding Vue.js Instance Lifecycle & hooks (Create, Mount, Update, Unmount)
+
 4/6/2022
 - Understanding how Vue.js uses Proxy behind the scenes to be reactive
 - Mounting app = making Vue.js template
