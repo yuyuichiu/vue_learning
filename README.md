@@ -1,4 +1,7 @@
-#Vue Learning Log
+# Vue Learning Log
+6/6/2022
+- Create Vue component by ```app.createComponent('comp-name', { _config_ })```
+
 5/6/2022
 - Understanding Vue.js Instance Lifecycle & hooks (Create, Mount, Update, Unmount)
 
