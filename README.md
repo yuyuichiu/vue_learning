@@ -1,6 +1,15 @@
 # Vue Learning Log
+9/6/2022
+- Using components in build environment
+- Communicate data between components with ```props```
+
+7/6/2022
+- Transition to the CLI approach to develop Vue application for better-supported development experience
+- Understanding the format of vue file: script, template, style
+
+
 6/6/2022
-- Create Vue component by ```app.createComponent('comp-name', { _config_ })```
+- Learn to create Vue component by ```app.createComponent('comp-name', { _config_ })```
 
 5/6/2022
 - Understanding Vue.js Instance Lifecycle & hooks (Create, Mount, Update, Unmount)
